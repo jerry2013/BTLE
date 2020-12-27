@@ -181,7 +181,7 @@ bool BTLE::listen(int timeout) {
 	uint8_t total_size = 0;
 	uint8_t* inbuf = (uint8_t*)&buffer;
 
-	while (radio->available()) {
+	if (radio->available()) {
 
 		// fetch the payload, and check if there are more left
 		radio->read( inbuf, sizeof(buffer) );
